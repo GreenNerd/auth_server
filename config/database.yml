@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *default
+  database: auth_server_development
+
+test:
+  <<: *default
+  database: auth_server_test
+
+production:
+  <<: *default
+  database: auth_server_production
