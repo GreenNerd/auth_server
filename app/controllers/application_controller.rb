@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def wifi_auth_url(gw_address, gw_port)
-    "http://#{gw_address}:#{gw_port}/wifidog/auth"
+  def wifi_auth_url(gw_address, gw_port, token)
+    "http://#{gw_address}:#{gw_port}/wifidog/auth?token=#{token}"
+  end
+
+  def token_for(user, token_secret)
+    user.name.bytes.map { |byte| (byte^token_secret).chr }.join
   end
 end

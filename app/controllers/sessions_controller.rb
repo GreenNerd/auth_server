@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: login_params[:name])
 
     if @user && @user.authenticate(login_params[:password])
-      redirect_to wifi_auth_url(session[:gw_address], session[:gw_port])
+      token = token_for(@user, 7)
+      redirect_to wifi_auth_url(session[:gw_address], session[:gw_port], token)
     else
       flash[:now] = '用户名或密码错误，请重新登录'
       render :new
