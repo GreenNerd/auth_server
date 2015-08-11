@@ -10,3 +10,11 @@ class ActiveSupport::TestCase
 
   include FactoryGirl::Syntax::Methods
 end
+
+class ActionController::TestCase
+  %w(wifi_auth_url token_for).each do |method|
+    define_method method do |*args|
+      @controller.send method, *args
+    end
+  end
+end

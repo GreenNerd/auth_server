@@ -16,10 +16,9 @@ class SessionsControllerTest < ActionController::TestCase
   test "should redirect with token after login" do
     session[:gw_address] = '199.199.199.199'
     session[:gw_port] = '2060'
-    token_secret = 7
-    token = 'name'.bytes.map { |byte| (byte^token_secret).chr }.join
-    create(:user, name: 'name', password: '12345678')
+    user = create(:user, name: 'name', password: '12345678')
     post :create, user: { name: 'name', password: '12345678' }
-    assert_redirected_to "http://199.199.199.199:2060/wifidog/auth?token=#{token}"
+    token = token_for(user, 7)
+    assert_redirected_to wifi_auth_url(session[:gw_address], session[:gw_port], token)
   end
 end
