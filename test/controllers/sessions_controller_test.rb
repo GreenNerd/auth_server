@@ -13,11 +13,13 @@ class SessionsControllerTest < ActionController::TestCase
     end
   end
 
-  test "should redirect after login" do
+  test "should redirect with token after login" do
     session[:gw_address] = '199.199.199.199'
     session[:gw_port] = '2060'
+    token_secret = 7
+    token = 'name'.bytes.map { |byte| (byte^token_secret).chr }.join
     create(:user, name: 'name', password: '12345678')
     post :create, user: { name: 'name', password: '12345678' }
-    assert_redirected_to 'http://199.199.199.199:2060/wifidog/auth'
+    assert_redirected_to "http://199.199.199.199:2060/wifidog/auth?token=#{token}"
   end
 end
