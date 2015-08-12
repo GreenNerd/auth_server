@@ -24,11 +24,13 @@ class UserController < ApplicationController
     when nil
       user.mac_addr = mac_addr
       if user.save
+        user.attendances.create
         render Allowed
       else
         render Denied
       end
     when mac_addr
+      user.attendances.create
       render Allowed
     else
       render Denied
