@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def token_for(user, token_secret)
     user.name.bytes.map { |byte| (byte^token_secret).chr }.join
   end
+
+  def get_name_from_token(token, token_secret)
+    token.bytes.map { |byte| (byte^token_secret).chr }.join
+  end
 end
