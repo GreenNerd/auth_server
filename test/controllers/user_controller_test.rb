@@ -28,6 +28,22 @@ class UserControllerTest < ActionController::TestCase
     assert_equal Denied, @response.body
   end
 
+  test "should sign in for first login" do
+    user = create(:user, user_param('name', nil))
+
+    assert_difference "user.attendances.count" do
+      get :auth, auth_param(user, 'foo')
+    end
+  end
+
+  test "should sign in for user with correct mac_addr" do
+    user = create(:user, user_param('name', 'foo'))
+
+    assert_difference "user.attendances.count" do
+      get :auth, auth_param(user, 'foo')
+    end
+  end
+
   def user_param(name, mac_addr)
     {name: name, password: '12345678', mac_addr: mac_addr}
   end
