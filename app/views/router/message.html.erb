@@ -1,0 +1,5 @@
+<% if !flash[:now].nil? %>
+    <p>发生错误，错误代码为<%= flash[:now] %></p>
+<% else %>
+    <p>发生未知错误</p>
+<% end %>
