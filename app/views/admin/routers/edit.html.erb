@@ -1,0 +1,11 @@
+<h1>Edit Router</h1>
+<%= form_for :router, url: admin_router_url, method: :patch do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
