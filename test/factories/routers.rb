@@ -8,5 +8,6 @@ FactoryGirl.define do
     sys_load "MyString"
     wifidog_uptime 1
     sync_time "2015-08-12 16:06:49"
+    admin_ids []
   end
 end
