@@ -1,6 +1,4 @@
 class Admin::RoutersController < Admin::ApplicationController
-  before_action :find_router
-
   def show
   end
 
@@ -16,10 +14,6 @@ class Admin::RoutersController < Admin::ApplicationController
   end
 
   private
-
-  def find_router
-    @router = Router.first
-  end
 
   def router_params
     params.require(:router).permit(:name)

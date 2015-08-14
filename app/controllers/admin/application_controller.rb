@@ -1,7 +1,12 @@
 class Admin::ApplicationController < ApplicationController
   before_action :login_required
+  before_action :find_router
 
   private
+
+  def find_router
+    @router = Router.first
+  end
 
   def login_required
     unless session[:admin_id].present?
