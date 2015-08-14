@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'portal', to: 'router#portal', as: 'portal'
 
   namespace :admin do
+    root to: 'dashboard#show'
+
     get 'login', to: 'sessions#new', as: 'login'
     post 'login', to: 'sessions#create'
   end
