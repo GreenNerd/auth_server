@@ -17,4 +17,16 @@ class Admin::SessionsControllerTest < ActionController::TestCase
     post :create, user: { name: 'admin', password: '123456' }
     assert_redirected_to admin_root_url
   end
+
+  test "should destroy session" do
+    login_as create(:admin)
+    delete :destroy
+    assert_nil session[:admin_id]
+  end
+
+  test "should redirect after logout" do
+    login_as create(:admin)
+    delete :destroy
+    assert_redirected_to admin_login_url
+  end
 end

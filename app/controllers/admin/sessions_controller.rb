@@ -16,6 +16,11 @@ class Admin::SessionsController < Admin::ApplicationController
     end
   end
 
+  def destroy
+    logout
+    redirect_to admin_login_url
+  end
+
   private
 
   def login_params

@@ -12,4 +12,8 @@ class Admin::ApplicationController < ApplicationController
   def login_as(user)
     session[:admin_id] = user.id
   end
+
+  def logout
+    session.delete(:admin_id)
+  end
 end
