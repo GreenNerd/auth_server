@@ -7,4 +7,15 @@ Rails.application.routes.draw do
   get 'gw_message', to: 'router#message', as: 'message'
   get 'ping', to: 'router#ping', as: 'ping'
   get 'portal', to: 'router#portal', as: 'portal'
+
+  namespace :admin do
+    root to: 'dashboard#show'
+
+    get 'login', to: 'sessions#new', as: 'login'
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+
+    resource :router, only: [:show, :edit, :update]
+    resources :users
+  end
 end

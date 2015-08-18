@@ -1,0 +1,13 @@
+<%= form_tag admin_login_path %>
+  <div>
+  <%= label_tag '名字' %>
+  <%= text_field_tag 'user[name]' %>
+  </div>
+
+  <div>
+  <%= label_tag '密码' %>
+  <%= password_field_tag 'user[password]' %>
+  </div>
+
+  <div>
+  <%= submit_tag '登录' %>

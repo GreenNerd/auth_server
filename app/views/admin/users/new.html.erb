@@ -1,0 +1,16 @@
+<h1>新建用户</h1>
+<%= form_for @user, url: admin_users_url do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </div>
+
+  <div>
+  <%= f.submit '新建' %>
+  </div>
+<% end %>

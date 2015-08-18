@@ -1,0 +1,27 @@
+<h1>User - Index</h1>
+
+<div>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>MAC Addr</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, admin_user_url(user) %></td>
+      <td><%= user.mac_addr %></td>
+      <td><%= link_to "Edit", edit_admin_user_url(user) %></td>
+      <td><%= link_to "Delete", admin_user_url(user), method: :delete %>
+    </tr>
+  <% end %>
+</table>
+</div>
+
+<div>
+<%= link_to '新增用户', new_admin_user_url %>
+</div>
+
+<div>
+<%= link_to 'Dashboard', admin_root_url %>
+</div>
