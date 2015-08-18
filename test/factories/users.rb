@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    password_digest "MyString"
-    mac_addr "MyString"
+    sequence(:name) { |n| "name#{n}" }
+    password "MyString"
+    sequence(:mac_addr) { |n| "mac_addr#{n}" }
     router_id 1
     association :router, factory: :router
   end

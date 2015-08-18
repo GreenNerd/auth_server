@@ -1,0 +1,21 @@
+<h1>Edit User</h1>
+<%= form_for :user, url: admin_user_url, method: :patch do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.label :mac_addr %>
+  <%= f.text_field :mac_addr %>
+  </div>
+
+  <div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>
