@@ -1,4 +1,15 @@
 <h1>Router</h1>
+
+<div>
 <% @router.attributes.each do |key, value| %>
   <p><%= "#{key}: #{value}" %></p>
 <% end %>
+</div>
+
+<div>
+<%= link_to "Edit", edit_admin_router_url %>
+</div>
+
+<div>
+<%= link_to "Dashboard", admin_root_url %>
+</div>
