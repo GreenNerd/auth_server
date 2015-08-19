@@ -44,6 +44,22 @@ class UserControllerTest < ActionController::TestCase
     end
   end
 
+  test "should return Bound" do
+    router = create(:router)
+    user = router.users.create(attributes_for(:user))
+
+    get :access, access_param(user, router)
+    assert_equal Bound_status[:bound], @response.body
+  end
+
+  test "should return Unbound" do
+    router = create(:router)
+    user = router.users.create(attributes_for(:user))
+
+    get :access, user_mac_addr: 'notexist', router_mac_addr: router.gw_id
+    assert_equal Bound_status[:unbound], @response.body
+  end
+
   def user_param(name, mac_addr)
     {name: name, password: '12345678', mac_addr: mac_addr}
   end
@@ -51,5 +67,9 @@ class UserControllerTest < ActionController::TestCase
   def auth_param(user, mac_addr)
     token = token_for(user, 7)
     {stage: 'login', token: token, mac: mac_addr}
+  end
+
+  def access_param(user, router)
+    {user_mac_addr: user.mac_addr, router_mac_addr: router.gw_id}
   end
 end

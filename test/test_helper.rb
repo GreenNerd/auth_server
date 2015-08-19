@@ -17,6 +17,12 @@ class ActionController::TestCase
     denied: 'Auth: 0'
   }
 
+  Bound_status = {
+    bound: 'Bound: 1',
+    unbound: 'Bound: 0',
+    params_error: 'Bound: -1'
+  }
+
   %w(wifi_auth_url token_for login_as logout find_router).each do |method|
     define_method method do |*args|
       @controller.send method, *args
