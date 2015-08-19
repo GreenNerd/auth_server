@@ -7,10 +7,10 @@ class UserController < ApplicationController
       if user && params[:mac]
         bind_or_deny(user, params[:mac])
       else
-        render Denied
+        render plain: Auth_status[:denied]
       end
     else
-      render Allowed
+      render plain: Auth_status[:allowed]
     end
   end
 
@@ -19,8 +19,10 @@ class UserController < ApplicationController
 
   private
 
-  Allowed = {plain: 'Auth: 1'}
-  Denied = {plain: 'Auth: 0'}
+  Auth_status = {
+    allowed: 'Auth: 1',
+    denied: 'Auth: 0'
+  }
 
   def bind_or_deny(user, mac_addr)
     case user.mac_addr
@@ -28,15 +30,15 @@ class UserController < ApplicationController
       user.mac_addr = mac_addr
       if user.save
         user.attendances.create
-        render Allowed
+        render plain: Auth_status[:allowed]
       else
-        render Denied
+        render plain: Auth_status[:denied]
       end
     when mac_addr
       user.attendances.create
-      render Allowed
+      render plain: Auth_status[:allowed]
     else
-      render Denied
+      render plain: Auth_status[:denied]
     end
   end
 end

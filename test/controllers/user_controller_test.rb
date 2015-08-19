@@ -6,26 +6,26 @@ class UserControllerTest < ActionController::TestCase
     get :auth, auth_param(user, 'foo')
     user.reload
     assert_equal 'foo', user.mac_addr
-    assert_equal Allowed, @response.body
+    assert_equal Auth_status[:allowed], @response.body
   end
 
   test "should return Allowed for user with correct mac_addr" do
     user = create(:user, user_param('name', 'foo'))
     get :auth, auth_param(user, 'foo')
-    assert_equal Allowed, @response.body
+    assert_equal Auth_status[:allowed], @response.body
   end
 
   test "should return Denied for user with wrong mac_addr" do
     user = create(:user, user_param('name', 'foo'))
     get :auth, auth_param(user, 'bar')
-    assert_equal Denied, @response.body
+    assert_equal Auth_status[:denied], @response.body
   end
 
   test "should return Denied for user with mac_addr used" do
     user_a = create(:user, user_param('name_a', 'foo'))
     user_b = create(:user, user_param('name_b', nil))
     get :auth, auth_param(user_b, 'foo')
-    assert_equal Denied, @response.body
+    assert_equal Auth_status[:denied], @response.body
   end
 
   test "should sign in for first login" do

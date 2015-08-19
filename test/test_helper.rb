@@ -12,8 +12,10 @@ class ActiveSupport::TestCase
 end
 
 class ActionController::TestCase
-  Allowed = 'Auth: 1'
-  Denied = 'Auth: 0'
+  Auth_status = {
+    allowed: 'Auth: 1',
+    denied: 'Auth: 0'
+  }
 
   %w(wifi_auth_url token_for login_as logout find_router).each do |method|
     define_method method do |*args|
