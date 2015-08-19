@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   get 'auth', to: 'user#auth', as: 'auth'
+  get 'access', to: 'user#access', as: 'access'
 
   get 'gw_message', to: 'router#message', as: 'message'
   get 'ping', to: 'router#ping', as: 'ping'

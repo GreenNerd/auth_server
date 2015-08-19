@@ -14,6 +14,9 @@ class UserController < ApplicationController
     end
   end
 
+  def access
+  end
+
   private
 
   Allowed = {plain: 'Auth: 1'}
