@@ -49,7 +49,7 @@ class UserControllerTest < ActionController::TestCase
     user = router.users.create(attributes_for(:user))
 
     get :access, access_param(user, router)
-    assert_equal Bound_status[:bound], @response.body
+    assert_equal Bound_status(router.gw_id, :bound), @response.body
   end
 
   test "should return Unbound" do
@@ -57,12 +57,12 @@ class UserControllerTest < ActionController::TestCase
     user = router.users.create(attributes_for(:user))
 
     get :access, user_mac_addr: 'notexist', router_mac_addr: router.gw_id
-    assert_equal Bound_status[:unbound], @response.body
+    assert_equal Bound_status(router.gw_id, :unbound), @response.body
   end
 
   test "should return params_error" do
-    get :access
-    assert_equal Bound_status[:params_error], @response.body
+    get :access, router_mac_addr: 'notexist'
+    assert_equal Bound_status('notexist', :params_error), @response.body
   end
 
   def user_param(name, mac_addr)

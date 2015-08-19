@@ -19,15 +19,15 @@ class UserController < ApplicationController
     router_mac_addr = params[:router_mac_addr]
 
     unless user_mac_addr && router_mac_addr && Router.exists?(gw_id: router_mac_addr)
-      return render plain: Bound_status[:params_error]
+      return render plain: Bound_status(router_mac_addr, :params_error)
     end
 
     if User.exists?(
       router_id: Router.find_by(gw_id: router_mac_addr),
       mac_addr: user_mac_addr)
-      render plain: Bound_status[:bound]
+      render plain: Bound_status(router_mac_addr, :bound)
     else
-      render plain: Bound_status[:unbound]
+      render plain: Bound_status(router_mac_addr, :unbound)
     end
   end
 
@@ -43,6 +43,10 @@ class UserController < ApplicationController
     unbound: 'Bound: 0',
     params_error: 'Bound: -1'
   }
+
+  def Bound_status(router_mac_addr, status)
+    "gw_id: #{router_mac_addr} Bound: #{Bound_status[status]}"
+  end
 
   def bind_or_deny(user, mac_addr)
     case user.mac_addr

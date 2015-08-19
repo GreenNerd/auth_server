@@ -23,6 +23,10 @@ class ActionController::TestCase
     params_error: 'Bound: -1'
   }
 
+  def Bound_status(router_mac_addr, status)
+    "gw_id: #{router_mac_addr} Bound: #{Bound_status[status]}"
+  end
+
   %w(wifi_auth_url token_for login_as logout find_router).each do |method|
     define_method method do |*args|
       @controller.send method, *args
