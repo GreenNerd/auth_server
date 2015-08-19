@@ -19,7 +19,7 @@ class UserController < ApplicationController
     router_mac_addr = params[:router_mac_addr]
 
     unless user_mac_addr && router_mac_addr && Router.exists?(gw_id: router_mac_addr)
-      render plain: Bound_status[:params_error]
+      return render plain: Bound_status[:params_error]
     end
 
     if User.exists?(

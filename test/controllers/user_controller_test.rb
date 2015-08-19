@@ -60,6 +60,11 @@ class UserControllerTest < ActionController::TestCase
     assert_equal Bound_status[:unbound], @response.body
   end
 
+  test "should return params_error" do
+    get :access
+    assert_equal Bound_status[:params_error], @response.body
+  end
+
   def user_param(name, mac_addr)
     {name: name, password: '12345678', mac_addr: mac_addr}
   end
