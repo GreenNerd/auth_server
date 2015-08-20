@@ -52,6 +52,15 @@ class UserControllerTest < ActionController::TestCase
     assert_equal Bound_status(router.gw_id, :bound), @response.body
   end
 
+  test "should sign in for bound user" do
+    router = create(:router)
+    user = router.users.create(attributes_for(:user))
+
+    assert_difference "user.attendances.count" do
+      get :access, access_param(user, router)
+    end
+  end
+
   test "should return Unbound" do
     router = create(:router)
     user = router.users.create(attributes_for(:user))

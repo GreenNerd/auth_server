@@ -25,6 +25,7 @@ class UserController < ApplicationController
     if User.exists?(
       router_id: Router.find_by(gw_id: router_mac_addr),
       mac_addr: user_mac_addr)
+      User.find_by(mac_addr: user_mac_addr).attendances.create
       render plain: Bound_status(router_mac_addr, :bound)
     else
       render plain: Bound_status(router_mac_addr, :unbound)
