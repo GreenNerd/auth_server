@@ -1,0 +1,126 @@
+$blue-grey-900: #263238;
+
+@mixin mdl-display-flex {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+@mixin mdl-orientation($direction) {
+  -webkit-box-direction: normal;
+
+  @if $direction == horizontal {
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  @if $direction == vertical {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+}
+
+@mixin mdl-align-center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+}
+
+.mdl-layout__header-row .mdl-tooltip {
+  background-color: $blue-grey-900 !important;
+}
+
+.admin-drawer {
+  border: none;
+}
+
+.mdl-layou__drawer-button {
+  color: rgba(0, 0, 0, .54) !important;
+}
+
+.admin-drawer-header {
+  @include mdl-display-flex;
+  @include mdl-orientation(vertical);
+  box-sizing: border-box;
+  -webkit-justify-content: flex-end;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px;
+}
+
+.admin-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.admin-admin-info {
+  @include mdl-display-flex;
+  @include mdl-orientation(horizontal);
+  @include mdl-align-center;
+  width: 100%
+
+  span {
+    font-size: 17px;
+  }
+}
+
+.mdl-menu__item a {
+  @include mdl-display-flex;
+  @include mdl-orientation(horizontal);
+  @include mdl-align-center;
+  color: #000000;
+  font-size: 15px;
+  font-weight: lighter;
+  text-decoration: none;
+
+  i {
+    margin-left: 5px;
+  }
+}
+
+.admin-navigation {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.mdl-navigation__link {
+  @include mdl-display-flex;
+  @include mdl-orientation(horizontal);
+  @include mdl-align-center;
+  color: rgba(255, 255, 255, .56) !important;
+  font-size: 17px;
+  font-weight: lighter;
+
+  &:hover {
+    background-color: #00BCD4 !important;
+    color: #37474F !important;
+  }
+
+  .material-icons {
+    font-size: 24px;
+    margin-right: 32px;
+  }
+}
+
+.admin-menu-separator {
+  height: 1px;
+  margin: 4px;
+  color: rgb(66, 66, 66);
+  background-color: rgb(220, 220, 220);
+}
+
+.admin-drawer-separator {
+  height: 1px;
+  margin: 8px 0;
+}

@@ -1,4 +1,6 @@
 class Admin::ApplicationController < ApplicationController
+  layout 'admin'
+
   before_action :login_required
   before_action :find_router
 

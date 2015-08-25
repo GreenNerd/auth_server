@@ -1,0 +1,70 @@
+doctype html
+html
+  head
+    title 管理后台
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+  body
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-drawer
+      header.mdl-layout__header.mdl-color--white.mdl-color--grey-100.mdl-color-text--grey-600.is-casting-shadow
+        .mdl-layout__header-row
+          span.mdl-layout-title 管理后台
+          .mdl-layout-spacer
+          a.mdl-button.mdl-js-icon.mdl-button--icon id="home-icon" href="/admin"
+            i.material-icons dashboard
+          .mdl-tooltip for="home-icon" 主页
+      .admin-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+        header.admin-drawer-header
+          = image_tag "skylark.png", class: "admin-logo"
+          .admin-admin-info
+            span Administrator
+            .mdl-layout-spacer
+            button.mdl-button.mdl-js-icon.mdl-button--icon id="admin-drawer-dropdown"
+              i.material-icons arrow_drop_down
+            ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="admin-drawer-dropdown"
+              li.mdl-menu__item
+                a href=""
+                  | 修改密码
+                  i.material-icons edit
+              .admin-menu-separator
+              li.mdl-menu__item
+                a data-method="delete" href=admin_logout_url
+                  | 退出登录
+                  i.material-icons exit_to_app
+        nav.admin-navigation.mdl-navigation.mdl-color--blue-grey-800
+          span.mdl-navigation__link
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" account_circle
+            | 用户管理
+          a.mdl-navigation__link href=admin_users_url
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" group
+            | 用户列表
+          a.mdl-navigation__link href=""
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" assignment
+            | 签到情况
+          .admin-drawer-separator
+          span.mdl-navigation__link
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" network_wifi
+            | 路由管理
+          a.mdl-navigation__link href=admin_router_url
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" info
+            | 路由信息
+          a.mdl-navigation__link href=edit_admin_router_url
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" edit
+            | 编辑路由
+          .admin-drawer-separator
+          span.mdl-navigation__link
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" settings
+            | 设置
+          a.mdl-navigation__link href=""
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" rate_review
+            | 签到设置
+          .mdl-layout-spacer
+          a.mdl-navigation__link href=""
+            i.mdl-color-text--blue-grey-400.material-icons role="presentation" help_outline
+
+      main.mdl-layout__content.mdl-color--grey-100
+        .page-content.mdl-card.mdl-color--white.mdl-shadow--2dp.mdl-cell.mdl-cell--12-col.mdl-grid
+          = yield
