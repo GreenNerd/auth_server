@@ -24,7 +24,7 @@ private
 
   #比较时间段及星期以及月份的函数
   def compare_num(start_num,end_num,now_num)
-       start_num<(now_num-1) && end_num>(now_num-1)  ? true : false
+       (start_num-1)<now_num && end_num>(now_num-1)  ? true : false
   end
 
    def check_weekday
