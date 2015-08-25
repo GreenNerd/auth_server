@@ -18,7 +18,7 @@ html
           a.mdl-button.mdl-js-icon.mdl-button--icon id="home-icon" href="/admin"
             i.material-icons dashboard
           .mdl-tooltip for="home-icon" 主页
-      .admin-drawer.mdl-layout__drawer.mdl-color--blue-grey-900.mdl-color-text--blue-grey-50
+      .admin-drawer.mdl-layout__drawer.mdl-color-text--blue-grey-50
         header.admin-drawer-header
           = image_tag "skylark.png", class: "admin-logo"
           .admin-admin-info
@@ -36,7 +36,7 @@ html
                 a data-method="delete" href=admin_logout_url
                   | 退出登录
                   i.material-icons exit_to_app
-        nav.admin-navigation.mdl-navigation.mdl-color--blue-grey-800
+        nav.admin-navigation.mdl-navigation
           span.mdl-navigation__link
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" account_circle
             | 用户管理
@@ -68,5 +68,5 @@ html
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" help_outline
 
       main.mdl-layout__content.mdl-color--grey-100
-        .page-content.mdl-card.mdl-color--white.mdl-shadow--2dp.mdl-cell.mdl-cell--12-col.mdl-grid
+        .page-content.mdl-card.mdl-color--white.mdl-shadow--4dp.mdl-cell.mdl-cell--12-col.mdl-grid
           = yield

@@ -1,0 +1,13 @@
+- @page_title = '用户列表'
+
+.mdl-card__title.mdl-card--expand
+  h2.mdl-card__title-text 用户列表
+.mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.user-container
+  = render @users
+
+javascript:
+  $('body').on('click', '.user-info-box', function(){
+    var userId = $(this).data('user-id');
+    var userUrl = "#{admin_users_url}/" + userId;
+    window.location.href = userUrl;
+  });

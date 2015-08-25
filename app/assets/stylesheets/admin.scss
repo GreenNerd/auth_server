@@ -32,6 +32,10 @@ $blue-grey-900: #263238;
   -ms-flex-align: center;
 }
 
+body {
+  background-color: #EEEEEE;
+}
+
 .mdl-layout__header-row .mdl-tooltip {
   background-color: $blue-grey-900 !important;
 }
@@ -53,6 +57,7 @@ $blue-grey-900: #263238;
   justify-content: flex-end;
   padding: 16px;
   height: 151px;
+  background-color: #222831 !important;
 }
 
 .admin-logo {
@@ -92,6 +97,7 @@ $blue-grey-900: #263238;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  background-color: #393E46 !important;
 }
 
 .mdl-navigation__link {
@@ -103,7 +109,7 @@ $blue-grey-900: #263238;
   font-weight: lighter;
 
   &:hover {
-    background-color: #00BCD4 !important;
+    background-color: #00ADB5 !important;
     color: #37474F !important;
   }
 
@@ -114,6 +120,62 @@ $blue-grey-900: #263238;
   .material-icons {
     font-size: 24px;
     margin-right: 32px;
+  }
+}
+
+.page-content {
+  max-width: 1080px;
+
+  @include mdl-display-flex;
+  @include mdl-orientation(vertical);
+  padding: 0;
+  margin: auto;
+  margin-top: 20px;
+
+  .mdl-card__title {
+    height: 131px;
+    color: #fff;
+    background-color: #00ADB5;
+  }
+
+  .mdl-card__supporting-text {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -webkit-positive: 1;
+    -ms-flex-positive: 1;
+    color: inherit;
+    margin: auto;
+    padding: 20px 0;
+
+    .user-info-box {
+      max-width: 156px;
+      margin: 16px;
+      overflow: hidden;
+
+      &:hover {
+        background-color: #efefef;
+      }
+    }
+
+    .user-icon-container {
+      width: 156px;
+      height: 78px;
+      font-size: 50px;
+      line-height: 78px;
+      margin: 8px 0;
+      text-align: center;
+    }
+
+    .user-info {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      text-align: center;
+      margin: auto;
+    }
   }
 }
 

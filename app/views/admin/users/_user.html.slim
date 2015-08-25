@@ -1,0 +1,8 @@
+.user-info-box.mdl-shadow--2dp data-user-id=user.id
+  .user-icon-container.mdl-cell.mdl-cell--2-col.mdl-cell--1-col-phone.material-icons face
+  .user-info.mdl-cell.mdl-cell--10-col-desktop.mdl.cell--6-tablet.mdl-cell--3-col-phone
+    h5 = user.name
+    - if user.mac_addr
+      p style="color: #46B6AC" 已绑定
+    - else
+      p style="color: #F44336" 未绑定
