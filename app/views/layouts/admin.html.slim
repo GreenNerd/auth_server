@@ -38,7 +38,7 @@ html
           span.mdl-navigation__link
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" account_circle
             | 用户管理
-          a.mdl-navigation__link href=admin_users_url
+          a.mdl-navigation__link id="user_index" href=admin_users_url
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" group
             | 用户列表
           a.mdl-navigation__link href=""
@@ -48,10 +48,10 @@ html
           span.mdl-navigation__link
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" network_wifi
             | 路由管理
-          a.mdl-navigation__link href=admin_router_url
+          a.mdl-navigation__link id="router_show" href=admin_router_url
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" info
             | 路由信息
-          a.mdl-navigation__link href=edit_admin_router_url
+          a.mdl-navigation__link id="router_edit" href=edit_admin_router_url
             i.mdl-color-text--blue-grey-400.material-icons role="presentation" edit
             | 编辑路由
           .admin-drawer-separator

@@ -107,6 +107,10 @@ $blue-grey-900: #263238;
     color: #37474F !important;
   }
 
+  &.is-active {
+    background-color: #0097A7 !important;
+  }
+
   .material-icons {
     font-size: 24px;
     margin-right: 32px;
