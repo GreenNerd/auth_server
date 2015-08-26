@@ -1,7 +1,5 @@
 - @page_title = '用户列表'
 
-.mdl-card__title.mdl-card--expand
-  h2.mdl-card__title-text 用户列表
 .mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.user-container
   = render @users
   .create-user-box.mdl-shadow--2dp
@@ -17,7 +15,6 @@
     .form-group
       = submit_tag "创建用户", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored", id: "submit-button"
   .slide-up-icon.material-icons.mdl-button.mdl-js-button expand_less
-.mdl-card__actions
 
 javascript:
   $('body').on('click', '.user-info-box', function(){

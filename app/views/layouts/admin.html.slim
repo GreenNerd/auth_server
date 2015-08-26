@@ -69,4 +69,8 @@ html
 
       main.mdl-layout__content.mdl-color--grey-100
         .page-content.mdl-card.mdl-color--white.mdl-shadow--4dp.mdl-cell.mdl-cell--12-col.mdl-grid
+          .mdl-card__title.mdl-card--expand
+            h2.mdl-card__title-text
+              = @page_title ? @page_title : ""
           = yield
+          .mdl-card__actions
