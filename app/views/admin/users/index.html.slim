@@ -16,6 +16,7 @@
       = label_tag "密码", nil, class: "mdl-textfield__label", for: "user-password"
     .form-group
       = submit_tag "创建用户", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored", id: "submit-button"
+  .slide-up-icon.material-icons.mdl-button.mdl-js-button expand_less
 .mdl-card__actions
 
 javascript:
@@ -23,4 +24,8 @@ javascript:
     var userId = $(this).data('user-id');
     var userUrl = "#{admin_users_url}/" + userId;
     window.location.href = userUrl;
+  });
+
+  $('.slide-up-icon').click(function() {
+    $('.form-container').slideUp(350);
   });
