@@ -13,7 +13,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "should create user for the router" do
     assert_difference "@router.users.count" do
-      post :create, user: attributes_for(:user)
+      xhr :post, :create, user: attributes_for(:user)
     end
   end
 
