@@ -23,3 +23,8 @@ $(document).ready ->
   if itemId
     console.log itemId;
     $("##{itemId}").addClass 'is-active';
+
+  $('.create-user-box').click ->
+    $('.form-container').slideDown(350);
+    $('#user-name').focus();
+    $('.mdl-layout__content').animate scrollTop: "999999";

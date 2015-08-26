@@ -6,7 +6,7 @@
   = render @users
   .create-user-box.mdl-shadow--2dp
     .plus-icon-container.mdl-cell.mdl-cell--col-2.mdl-cell--1-col-phone.material-icons add_circle_outline
-.mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.form-container
+.mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.form-container style="display: none"
   = form_tag admin_users_url, remote: true do
     .form-group.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
        = text_field_tag "user[name]", nil, class: "mdl-textfield__input", id: "user-name"
