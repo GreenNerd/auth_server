@@ -1,4 +1,8 @@
 $blue-grey-900: #263238;
+$cyan: #00ADB5;
+$black: #222831;
+$light-black: #393E46;
+$grey: #EEEEEE;
 
 @mixin mdl-display-flex {
   display: -webkit-box !important;
@@ -33,7 +37,7 @@ $blue-grey-900: #263238;
 }
 
 body {
-  background-color: #EEEEEE;
+  background-color: $grey;
 }
 
 .mdl-layout__header-row .mdl-tooltip {
@@ -57,7 +61,7 @@ body {
   justify-content: flex-end;
   padding: 16px;
   height: 151px;
-  background-color: #222831 !important;
+  background-color: $black !important;
 }
 
 .admin-logo {
@@ -97,7 +101,7 @@ body {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  background-color: #393E46 !important;
+  background-color: $light-black !important;
 }
 
 .mdl-navigation__link {
@@ -109,7 +113,7 @@ body {
   font-weight: lighter;
 
   &:hover {
-    background-color: #00ADB5 !important;
+    background-color: $cyan !important;
     color: #37474F !important;
   }
 
@@ -135,7 +139,7 @@ body {
   .mdl-card__title {
     height: 131px;
     color: #fff;
-    background-color: #00ADB5;
+    background-color: $black;
   }
 
   .mdl-card__supporting-text {
@@ -151,9 +155,14 @@ body {
       max-width: 156px;
       margin: 16px;
       overflow: hidden;
+      color: #37474F;
+
+      h5 {
+        color: #37474F;
+      }
 
       &:hover {
-        background-color: #efefef;
+        background-color: $grey;
       }
     }
 
@@ -173,7 +182,7 @@ body {
     .plus-icon-container {
       width: 156px;
       height: 156px;
-      color: #666666;
+      color: $cyan;
       font-size: 80px;
       text-align: center;
       margin: auto;
