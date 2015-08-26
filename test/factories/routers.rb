@@ -9,7 +9,15 @@ FactoryGirl.define do
     wifidog_uptime 1
     sync_time "2015-08-12 16:06:49"
     admin_ids []
-    set_time  1
+    test_data={:start_minutes=>[600,600,600],
+                          :end_minutes=>[1400,1400,1400],
+                          :start_day=>1,
+                          :end_day=>5,
+                          :start_month=>1,
+                          :end_month=>9}
+    time_to_s=JSON.generate(test_data)
+    signin_conf  time_to_s
+     
   end
 end
 

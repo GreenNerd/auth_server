@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150825022941) do
     t.datetime "updated_at",                  null: false
     t.integer  "admin_ids",      default: [],              array: true
     t.string   "name"
-    t.string   "set_time"
+    t.string   "signin_conf"
   end
 
   create_table "users", force: :cascade do |t|
