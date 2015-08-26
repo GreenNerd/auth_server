@@ -1,0 +1,9 @@
+<% if @users %>
+  $('.user-container').html('<%= j (render @users) %>');
+  $('.user-container').append('<div class="create-user-box mdl-shadow--2dp"><div class="plus-icon-container mdl-cell mdl-cell--col-2 mdl-cell--1-col-phone material-icons">add_circle_outline</div>');
+  $('#user-name').val('');
+  $('#user-password').val('');
+  $('.form-container').slideUp(350);
+<% else %>
+  alert('error');
+<% end %>

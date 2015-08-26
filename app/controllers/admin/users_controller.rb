@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = @router.users
+    @users = @router.users.order(:id)
   end
 
   def new
@@ -10,10 +10,11 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def create
-    if @router.users.create(user_params.slice(:name, :password))
-      redirect_to admin_user_url(@router.users.last)
-    else
-      render 'new'
+    begin
+      @router.users.create!(user_params.slice(:name, :password))
+      @users = @router.users.all.order(:id)
+    rescue ActiveRecord::RecordInvalid
+      @users = nil
     end
   end
 
