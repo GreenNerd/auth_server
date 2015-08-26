@@ -133,8 +133,8 @@ body {
   @include mdl-display-flex;
   @include mdl-orientation(vertical);
   padding: 0;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
 
   .mdl-card__title {
     height: 131px;
@@ -142,7 +142,7 @@ body {
     background-color: $black;
   }
 
-  .mdl-card__supporting-text {
+  .user-container {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -webkit-positive: 1;
@@ -202,6 +202,46 @@ body {
       margin: auto;
     }
   }
+
+  .form-container {
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-top: 8px;
+    padding: 20px 0;
+    border-top: 1px solid $grey;
+
+    form {
+      width: 33%;
+      margin: auto;
+      .form-group {
+        display: block;
+        width: 100%;
+        margin: 8px auto;
+
+        #submit-button {
+          display: block;
+          width: 100%;
+          margin: 32px auto;
+          background-color: $cyan;
+        }
+      }
+    }
+  }
+
+  .mdl-card__actions {
+    height: 65px;
+    background-color: $black;
+  }
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty
+.mdl-textfield__label {
+  color: $cyan;
+}
+
+.mdl-textfield__label:after {
+  background-color: $cyan;
 }
 
 .admin-menu-separator {

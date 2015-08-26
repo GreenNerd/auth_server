@@ -6,6 +6,17 @@
   = render @users
   .create-user-box.mdl-shadow--2dp
     .plus-icon-container.mdl-cell.mdl-cell--col-2.mdl-cell--1-col-phone.material-icons add_circle_outline
+.mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.form-container
+  = form_tag admin_users_url, remote: true do
+    .form-group.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+       = text_field_tag "user[name]", nil, class: "mdl-textfield__input", id: "user-name"
+       = label_tag "用户名", nil, class: "mdl-textfield__label", for: "user-name"
+    .form-group.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      = text_field_tag "user[password]", nil, class: "mdl-textfield__input", id: "user-password", onfocus: "this.type='password'"
+      = label_tag "密码", nil, class: "mdl-textfield__label", for: "user-password"
+    .form-group
+      = submit_tag "创建用户", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored", id: "submit-button"
+.mdl-card__actions
 
 javascript:
   $('body').on('click', '.user-info-box', function(){
