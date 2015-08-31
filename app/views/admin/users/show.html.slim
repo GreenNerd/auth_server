@@ -1,0 +1,55 @@
+.mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing.user-profile
+  .mdl-grid.mdl-grid--4-col.user-profile-title
+    .user-icon-container.material-icons perm_identity
+    h1 = @user.name
+  .user-profile-container
+    .user-profile-name.user-attributes-container.mdl-textfield.mdl-js-textfield
+      | 姓名：
+      p
+        = @user.name
+      input.mdl-textfield__input type="text" style="display: none"
+    .user-profile-attendance-count.user-attributes-container.pull-right
+      p
+        | 签到次数：
+        = @user.attendances.count
+    .user-profile-edit.material-icons.mdl-button.mdl-js-button#user-edit edit
+    .mdl-tooltip for="user-edit" 编辑用户信息
+    .user-profile-status.user-attributes-container
+      p
+        | 用户状态：
+        - if @user.mac_addr
+          | 已绑定
+        - else
+          | 未绑定
+    .user-profile-mac-addr.user-attributes-container.pull-right
+      p
+        | MAC 地址：
+        - if @user.mac_addr
+          = @user.mac_addr
+        - else
+          | -
+    .user-profile-edit.material-icons.mdl-button.mdl-js-button#user-unbound lock_open
+    .mdl-tooltip for="user-unbound"
+      - if @user.mac_addr
+        | 取消绑定
+      - else
+        | 未绑定
+  .user-attendances-container
+
+css:
+  .mdl-card__actions {
+    background-color: #EEEEEE !important;
+  }
+
+javascript:
+  $(document).ready(function() {
+    if (!$('.mdl-card__title').html().includes('user-id-container')) {
+      $('.mdl-card__title').append('<div class="user-id-container">USER ID #{@user.id}</div>');
+      $('.mdl-card__actions').append('<div class="material-icons mdl-button mdl-js-button back-icon">chevron_left</div>');
+      $('.mdl-card__actions').append('<div class="material-icons mdl-button mdl-js-button trash-icon">delete</div>');
+    }
+
+    $('.back-icon').click(function() {
+      window.location.href="/admin/users";
+    });
+  });

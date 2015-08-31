@@ -72,5 +72,6 @@ html
           .mdl-card__title.mdl-card--expand
             h2.mdl-card__title-text
               = @page_title ? @page_title : ""
-          = yield
+          .page-content-container
+            = yield
           .mdl-card__actions
