@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814035643) do
+ActiveRecord::Schema.define(version: 20150831034946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(version: 20150814035643) do
     t.string   "sys_load"
     t.integer  "wifidog_uptime"
     t.time     "sync_time"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "admin_ids",      default: [],              array: true
+    t.datetime "created_at",                                                                                                                                   null: false
+    t.datetime "updated_at",                                                                                                                                   null: false
+    t.integer  "admin_ids",      default: [],                                                                                                                               array: true
     t.string   "name"
+    t.string   "signin_conf",    default: "{\"time_intervals\":[[0,1440]],\"wday_interval\":[1,2,3,4,5,6,7],\"month_interval\":[1,2,3,4,5,6,7,8,9,10,11,12]}"
   end
 
   create_table "users", force: :cascade do |t|
